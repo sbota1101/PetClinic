@@ -12,7 +12,7 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="UTF-8">
-    <title>Add pet</title>
+    <title>Add Vet</title>
     <nav th:insert="home.html::menu_nav">
     </nav>
 </head>
@@ -20,26 +20,22 @@
 <div class="container">
     <div class="form">
         <div class="row">
-            <form class="col s12" th:action="@{/addpet}" th:object="${pet}" method="post">
+            <form class="col s12" th:action="@{/addvet}" th:object="${vet}" method="post">
 
-                <h1>Add pet</h1>
-                <p>Please fill in this form to add a pet.</p>
-                <hr>
+                <h1>Add Vet</h1>
+                <p>Please fill in this form to add a Vet.</p>
 
                 <div class="row">
                     <div class="input-field col s12">
+<!--                        <label for="vet_firstname"><b>Vet First Name</b></label>-->
+                        <input th:field="*{firstName}" id="vet_firstname" type="text" placeholder="Vet First Name" required>
+<!--                        <label for="vet_lastname"><b>Vet Last Name</b></label>-->
+                        <input th:field="*{lastName}" id="vet_lastname" type="text" placeholder="Vet Last Name" required>
+                        <input th:field="*{speciality}" id="vet_speciality" type="text" placeholder="Vet Speciality" required>
+<!--                        <label for="vet_speciality"><b>Vet Speciality</b></label>-->
 
-                        <input th:field="*{petName}" id="pet_name" type="text" placeholder="Pet Name" required>
-<!--                        <label for="pet_name"><b>Pet Name</b></label>-->
-                        <input th:field="*{breed}" id="pet_breed" type="text" placeholder="Pet Breed" required>
-<!--                        <label for="pet_breed"><b>Pet Breed</b></label>-->
-                        <input th:field="*{typeOfAnimal}" id="pet_type" type="text" placeholder="Pet Type" required>
-<!--                        <label for="pet_type"><b>Pet Type</b></label>-->
-                        <input th:field="*{age}" id="pet_age" type="number" placeholder="Pet Age" required>
-<!--                        <label for="pet_age"><b>Pet Age</b></label>-->
                     </div>
                 </div>
-
                 <button type="submit">Save</button>
 
             </form>

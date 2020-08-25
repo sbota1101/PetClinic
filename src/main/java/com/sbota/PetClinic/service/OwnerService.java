@@ -1,6 +1,7 @@
 package com.sbota.PetClinic.service;
 
 import com.sbota.PetClinic.model.Owner;
+import com.sbota.PetClinic.model.Pet;
 import com.sbota.PetClinic.repository.OwnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -31,5 +32,13 @@ public class OwnerService {
 
     public void deleteById(Integer id) {
         ownerRepository.deleteById(id);
+    }
+
+    public List<Pet> findPetsByOwner(Integer id) {
+        Optional<Owner> pets = ownerRepository.findById(id);
+        if (pets.isPresent()) {
+            return pets.get().getPetList();
+        }
+        return null;
     }
 }

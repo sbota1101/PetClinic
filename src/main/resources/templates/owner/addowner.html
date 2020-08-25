@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <title>Add Owner</title>
+    <nav th:insert="home.html::menu_nav">
+    </nav>
+    <script>
+        $(document).ready(function() {
+            $('select').formSelect();
+        });
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="form">
+        <div class="row">
+            <form class="col s12" th:action="@{/addowner}" th:object="${owner}" method="post">
+
+                <h1>Add Owner</h1>
+                <p>Please fill in this form to add an Owner.</p>
+
+                <div class="row">
+                    <div class="input-field col s12">
+
+                        <input th:field="*{firstName}" id="owner_firstname" type="text" placeholder="Owner First Name" required>
+<!--                        <label for="owner_firstname"><b>Owner First Name</b></label>-->
+                        <input th:field="*{lastName}" id="owner_lastname" type="text" placeholder="Owner Last Name" required>
+<!--                        <label for="owner_lastname"><b>Owner Last Name</b></label>-->
+                        <input th:field="*{city}" id="owner_city" type="text" placeholder="City" required>
+<!--                        <label for="owner_city"><b>Owner City</b></label>-->
+                        <input th:field="*{address}" id="owner_address" type="text" placeholder="Address" required>
+<!--                        <label for="owner_address"><b>Owner Address</b></label>-->
+                        <input th:field="*{phoneNumber}" id="owner_phoneNumber" type="text" placeholder="PhoneNumber" required>
+<!--                        <label for="owner_phoneNumber"><b>Owner PhoneNumber</b></label>-->
+                    </div>
+                </div>
+<!--                <div class="row">-->
+<!--                    <div class="input-field col s12">-->
+<!--                        <select id="ownerId" th:field="*{owner}">-->
+<!--                            <option th:each="sc: ${owners}" th:value="${sc.ownerId}"-->
+<!--                                    th:text="${sc.firstName + ' ' + sc.lastName}"/>-->
+<!--                        </select>-->
+<!--                        <label for="school_group"><b>School group</b></label>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <button type="submit">Save</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

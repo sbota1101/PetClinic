@@ -12,18 +12,17 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="UTF-8">
-    <title>Add pet</title>
-    <nav th:insert="home.html::menu_nav">
-    </nav>
+    <title>Edit pet</title>
+    <nav th:insert="home.html::menu_nav"></nav>
 </head>
 <body>
 <div class="container">
     <div class="form">
         <div class="row">
-            <form class="col s12" th:action="@{/addpet}" th:object="${pet}" method="post">
+            <form class="col s12" th:action="@{/editpet/{id}(id=${pet.petId})}" th:object="${pet}" method="post">
 
-                <h1>Add pet</h1>
-                <p>Please fill in this form to add a pet.</p>
+                <h1>Edit pet</h1>
+                <p>Please fill in this form to edit a pet</p>
                 <hr>
 
                 <div class="row">
@@ -39,7 +38,6 @@
 <!--                        <label for="pet_age"><b>Pet Age</b></label>-->
                     </div>
                 </div>
-
                 <button type="submit">Save</button>
 
             </form>

@@ -15,7 +15,7 @@
     <meta charset="UTF-8">
 <nav th:fragment="menu_nav" xmlns:th="http://www.thymeleaf.org">
     <div class="nav-wrapper">
-        <a class="right" th:href="@{/logout}">Logout</a>
+        <a class="right" th:href="@{/home}">Home</a>
         <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
         <ul id="nav-mobile" class="left hide-on-med-and-down">
 
@@ -27,4 +27,18 @@
         </ul>
     </div>
 </nav>
+
+    <script th:fragment="nav_script" xmlns:th="http://www.thymeleaf.org" >
+    $(document).ready(function(){
+    $('.sidenav').sidenav();
+    });
+    </script>
+
 </head>
+<body>
+<h1>Pet Clinic Vassy</h1>
+<img alt="Studiu: Pisicile sunt la fel de inteligente precum câinii" class="n3VNCb" align="right" src="https://s.iw.ro/gateway/g/ZmlsZVNvdXJjZT1odHRwJTNBJTJGJTJG/c3RvcmFnZTA3dHJhbnNjb2Rlci5yY3Mt/cmRzLnJvJTJGc3RvcmFnZSUyRjIwMTcl/MkYwMSUyRjI2JTJGNzMzNTA5XzczMzUw/OV9waXNpY2Etc2ktY2F0ZWwuanBnJnc9/NzgwJmg9NDQwJmhhc2g9Njg4NmY0ODA4ODM4MDI3MmNiMDJjZGFjZjQyOWVlMGE=.thumb.jpg" data-noaft="1" jsname="HiaYvf" jsaction="load:XAeZkd,gvK6lb;" style="width: 433px; height: 244.256px; margin: 0px;">
+<p>Personalul specializat în domeniul veterinar vă oferă servicii la cele mai înalte standarde: radiologie digitală, chirurgie laser, terapie laser, anestezie inhalatorie cu Isofluran, monitorizare intra-operatorie, spitalizare, analize de sânge şi urină, teste rapide de diagnostic, examene coproparazitologice, examene microscopice, examene histopatologice şi citologice, examene ecografice, inclusiv diagnostic şi monitorizare gestaţie, asistenţă la fătare, examene dermatologice, EKG, implantări de  microcipuri, vaccinări şi deparazitari, consultaţii şi tratamente.</p>
+<p>De asemenea, animaluţul dumneavoastră poate beneficia de serviciile salonului de cosmetică felină şi canină, inclusiv maşina automată de spălat caţei, cât şi de calitatea produselor germane din pet shop-ul clinicii.</p>
+
+</body>
