@@ -21,23 +21,15 @@ public class Visit {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int visitId;
 
-    @DateTimeFormat(pattern = "yyyy/MM/dd")
+//    @DateTimeFormat(pattern = "dd.MM.yyyy")
     private Date date;
 
 
     @Column(name = "description")
     private String description;
-//    @ManyToOne
-//    @JoinColumn(name = "pet_id")
-//    private Pet pet;
 
-//
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    private Visit visitVet;
-
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    private Visit visitPet;
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Pet pet;
 
 }
 

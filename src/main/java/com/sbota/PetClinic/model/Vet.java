@@ -21,7 +21,5 @@ public class Vet extends Person {
 
     @OneToMany(mappedBy = "vet" , cascade = CascadeType.ALL)
     private List<Pet> petList;
-//
-//    @OneToMany(mappedBy = "vet" , cascade = CascadeType.ALL)
-//    private List<Visit> vetVisitList;
+
 }

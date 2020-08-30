@@ -20,7 +20,7 @@ public class Pet {
     private String petName;
     private String breed;
     private String typeOfAnimal;
-    private String age;
+    private int age;
 
 
 
@@ -29,9 +29,9 @@ public class Pet {
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Owner owner;
+    @OneToMany(mappedBy = "pet",cascade = CascadeType.ALL)
+    private List<Visit> visits;
 
 
-//    @OneToMany(mappedBy = "pet" , cascade = CascadeType.ALL)
-//    private List<Visit> petVisitList;
 
 }

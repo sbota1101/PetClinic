@@ -34,18 +34,18 @@
 
         <tr th:each="s : ${visits}">
             <td th:text="${s.visitId}"></td>
-            <td th:date="${s.date}"></td>
+            <td th:text="${s.date}"></td>
             <td th:text="${s.description}"></td>
 
 
             <td>
-                <a th:href="@{/editowner/{id}(id = ${s.ownerId})}">
-                    <i class="small material-icons">create</i></a>
-                <a th:href="@{/deleteowner/{id}(id = ${s.ownerId})}">
-                    <i class="small material-icons">delete</i></a>
-                <a th:href="@{/owner/{id}/pets(id = ${s.ownerId})}">
-                    <i class="small material-icons">pets</i>
-                </a>
+<!--                <a th:href="@{/editowner/{id}(id = ${s.ownerId})}">-->
+<!--                    <i class="small material-icons">create</i></a>-->
+<!--                <a th:href="@{/deleteowner/{id}(id = ${s.ownerId})}">-->
+<!--                    <i class="small material-icons">delete</i></a>-->
+<!--                <a th:href="@{/owner/{id}/pets(id = ${s.ownerId})}">-->
+<!--                    <i class="small material-icons">pets</i>-->
+<!--                </a>-->
 
             </td>
         </tr>
