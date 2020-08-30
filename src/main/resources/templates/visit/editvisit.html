@@ -25,16 +25,19 @@
 
     </script>
 </head>
+
 <body>
 <div class="container">
     <div class="form">
         <div class="row">
-            <form class="col s12" th:action="@{/addvisit}" th:object="${visit}" method="post">
+            <form class="col s12" th:action="@{/editvisit/{id}(id=${visit.visitId})}" th:object="${visit}" method="post">
 
-                <h1>Visits</h1>
-                <p>Please fill in this form to add a visit.</p>
+                <h1>Edit visit</h1>
+                <p>Please fill in this form to edit a visit</p>
                 <hr>
+
                 <div class="row">
+                    <input th:field="*{visitId}" type="hidden">
                     <div class="input-field col s12">
                         <input th:field="*{date}" id="visit_date" type="date" pattern="dd.MM.yyyy" required>
                         <input th:field="*{description}" id="name" type="text" placeholder="Description" required>
@@ -42,24 +45,6 @@
 
                     </div>
                 </div>
-<!--                <div class="row">-->
-<!--                    <div class="input-field col s12">-->
-<!--                        <select id="petId" th:field="*{pet.petId}">-->
-<!--                            <option th:each="sc: ${pets}" th:value="${sc.petId}"-->
-<!--                                    th:text="${sc.petName}"/>-->
-<!--                        </select>-->
-<!--                        <label for="petId"><b>Pets</b></label>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--                <div class="row">-->
-<!--                    <div class="input-field col s12">-->
-<!--                        <select id="vetId" th:field="*{vet.vetId}">-->
-<!--                            <option th:each="sc: ${vets}" th:value="${sc.vetId}"-->
-<!--                                    th:text="${sc.firstName + ' ' + sc.lastName+' '+sc.speciality}"/>-->
-<!--                        </select>-->
-<!--                        <label for="vetId"><b>Vets</b></label>-->
-<!--                    </div>-->
-<!--                </div>-->
                 <button type="submit">Save</button>
 
             </form>

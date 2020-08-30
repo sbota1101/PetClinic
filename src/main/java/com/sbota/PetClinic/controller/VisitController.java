@@ -29,7 +29,7 @@ public class VisitController {
     @GetMapping("/addvisit")
     public String addVisit(Model model) {
         model.addAttribute("visit", new Visit());
-        return "visit/addvisit";
+        return "visit/editvisit";
     }
 
     @PostMapping("/addvisit")
@@ -38,10 +38,30 @@ public class VisitController {
         return "redirect:/allvisits";
 
     }
+    @GetMapping("/editvisit/{id}")
+    public String editVisit(Model model, @PathVariable Integer id) {
 
-//    @GetMapping("/visit/{id}/vets")
-//    public String searchVetsByVisit(Model model, @PathVariable Integer id) {
-//        model.addAttribute("vets", visitService.findVetsByVisit(id));
-//        return "visit/findvet";
-//    }
+        Visit visit = visitService.findById(id);
+        model.addAttribute("visit",visit);
+        return "visit/editvisit";
+    }
+
+
+
+    @PostMapping("/editvisit/{id}")
+    public String editVisit(@ModelAttribute Visit visit, @PathVariable Integer id) {
+
+        visitService.save(visit); // save it again. SAVE acts as UPDATE
+
+        return "redirect:/allvisits";
+
+    }
+
+    @GetMapping("/deletevisit/{id}")
+    public String deleteVisit(@PathVariable Integer id) {
+        visitService.deleteById(id);
+
+        return "redirect:/allvisits";
+    }
+
 }

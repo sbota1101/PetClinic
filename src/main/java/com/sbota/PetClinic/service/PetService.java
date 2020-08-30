@@ -34,11 +34,11 @@ public class PetService {
     public void deleteById(Integer id) {
         petRepository.deleteById(id);
     }
-//
+
 //        public List<Visit> findVisitsByPet(Integer id) {
 //        Optional<Pet> pets = petRepository.findById(id);
 //        if (pets.isPresent()) {
-//            return pets.get().getPetVisitList();
+//            return pets.get().getVisits();
 //        }
 //        return null;
 //    }

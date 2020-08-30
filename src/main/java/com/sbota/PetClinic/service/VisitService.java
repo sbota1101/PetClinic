@@ -34,12 +34,4 @@ public class VisitService {
         visitRepository.deleteById(id);
     }
 
-
-//    public List<Pet> findVetsByVisit(Integer id) {
-//        Optional<Visit> pets = visitRepository.findById(id);
-//        if (pets.isPresent()) {
-//            return pets.get().getPetList();
-//        }
-//        return null;
-//    }
 }

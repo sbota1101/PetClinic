@@ -21,7 +21,7 @@ public class Visit {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int visitId;
 
-//    @DateTimeFormat(pattern = "dd.MM.yyyy")
+
     private Date date;
 
 
