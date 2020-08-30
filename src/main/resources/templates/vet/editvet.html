@@ -25,6 +25,7 @@
             <p>Please fill in this form to edit a vet</p>
 
                 <div class="row">
+                    <input th:field="*{vetId}" type="hidden">
                     <div class="input-field col s12">
 <!--                        <label for="vet_firstname"><b>Vet First Name</b></label>-->
                         <input th:field="*{firstName}" id="vet_firstname" type="text" placeholder="Vet First Name" required>

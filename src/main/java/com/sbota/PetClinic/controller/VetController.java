@@ -17,6 +17,7 @@ import java.util.List;
 public class VetController {
     @Autowired
     private VetService vetService;
+
     @GetMapping("allvets")
     public String showAllVets(Model model) {
 
@@ -42,7 +43,7 @@ public class VetController {
     @GetMapping("/editvet/{id}")
     public String editVet(Model model, @PathVariable Integer id) {
         Vet vet = vetService.findById(id);
-        model.addAttribute("vet",vet);
+        model.addAttribute("vet", vet);
 
         return "vet/editvet";
     }
@@ -63,4 +64,10 @@ public class VetController {
         return "redirect:/allvets";
     }
 
+    @GetMapping("/vet/{id}/pets")
+    public String searchPetsByVet(Model model, @PathVariable Integer id) {
+        model.addAttribute("pets", vetService.findPetsByVet(id));
+        return "vet/findpet";
+
+    }
 }

@@ -24,7 +24,7 @@
     <table>
         <thead>
         <tr>
-            <!--            <td>Owner Id</td>-->
+            <td>Owner Id</td>
             <td>Owner First Name</td>
             <td>Owner Last Name</td>
             <td>City</td>
@@ -46,8 +46,8 @@
                     <i class="small material-icons">create</i></a>
                 <a th:href="@{/deleteowner/{id}(id = ${s.ownerId})}">
                     <i class="small material-icons">delete</i></a>
-                <a th:href="@{/owner/{id}/allpets(id = ${s.ownerId})}">
-                    <i class="small material-icons">search</i>
+                <a th:href="@{/owner/{id}/pets(id = ${s.ownerId})}">
+                    <i class="small material-icons">pets</i>
                 </a>
 
             </td>

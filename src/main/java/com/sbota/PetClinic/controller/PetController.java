@@ -3,6 +3,8 @@ package com.sbota.PetClinic.controller;
 import com.sbota.PetClinic.model.Pet;
 import com.sbota.PetClinic.service.OwnerService;
 import com.sbota.PetClinic.service.PetService;
+import com.sbota.PetClinic.service.VetService;
+import com.sbota.PetClinic.service.VisitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,10 @@ public class PetController {
     private PetService petService;
     @Autowired
     private OwnerService ownerService;
+    @Autowired
+    private VetService vetService;
+    @Autowired
+    private VisitService visitService;
     @GetMapping("allpets")
     public String showAllPets(Model model) {
 
@@ -32,6 +38,7 @@ public class PetController {
     public String addPet(Model model) {
         model.addAttribute("pet", new Pet());
         model.addAttribute("owners", ownerService.findAll());
+        model.addAttribute("vets",vetService.findAll());
         return "pet/addpet";
     }
 
@@ -45,6 +52,7 @@ public class PetController {
     @GetMapping("/editpet/{id}")
     public String editPet(Model model, @PathVariable Integer id) {
         model.addAttribute("owners", ownerService.findAll());
+        model.addAttribute("vets",vetService.findAll());
         Pet pet = petService.findById(id);
         model.addAttribute("pet",pet);
         return "pet/editpet";
@@ -65,5 +73,9 @@ public class PetController {
 
         return "redirect:/allpets";
     }
-
+//    @GetMapping("/pet/{id}/visits")
+//    public String searchVisitsByPet(Model model, @PathVariable Integer id) {
+//        model.addAttribute("visits", petService.findVisitsByPet(id));
+//        return "pet/findvisit";
+//    }
 }

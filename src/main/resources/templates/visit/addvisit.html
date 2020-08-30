@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
+    <script type="text/javascript"
+            src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <nav th:insert="home.html::menu_nav">
+    </nav>
+    <script>
+        $(document).ready(function() {
+            $('select').formSelect();
+        });
+
+    </script>
+</head>
+<body>
+<div class="container">
+    <div class="form">
+        <div class="row">
+            <form class="col s12" th:action="@{/addvisit}" th:object="${visit}" method="post">
+
+                <h1>Visits</h1>
+                <p>Please fill in this form to add a visit.</p>
+                <hr>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <input th:field="*{date}" id="visit_date" type="date" pattern="yyyy-MM-dd" required>
+                        <input th:field="*{description}" id="name" type="text" placeholder="Description" required>
+<!--                        <label for="name"><b>Description</b></label>-->
+
+<!--                        <label for="visit_date"><b>Date</b></label>-->
+
+                    </div>
+                </div>
+<!--                <div class="row">-->
+<!--                    <div class="input-field col s12">-->
+<!--                        <select id="visitId" th:field="*{pet.visitId}">-->
+<!--                            <option th:each="sc: ${visits}" th:value="${sc.visitId}"-->
+<!--                                    th:text="${sc.date+' '+sc.description}"/>-->
+<!--                        </select>-->
+<!--                        <label for="visitId"><b>Pets</b></label>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="row">-->
+<!--                    <div class="input-field col s12">-->
+<!--                        <select id="vetId" th:field="*{vet.vetId}">-->
+<!--                            <option th:each="sc: ${vets}" th:value="${sc.vetId}"-->
+<!--                                    th:text="${sc.firstName + ' ' + sc.lastName+' '+sc.speciality}"/>-->
+<!--                        </select>-->
+<!--                        <label for="vetId"><b>Vets</b></label>-->
+<!--                    </div>-->
+<!--                </div>-->
+                <button type="submit">Save</button>
+
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

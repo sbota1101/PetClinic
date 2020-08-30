@@ -1,5 +1,6 @@
 package com.sbota.PetClinic.service;
 
+import com.sbota.PetClinic.model.Pet;
 import com.sbota.PetClinic.model.Visit;
 import com.sbota.PetClinic.repository.VisitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,4 +33,13 @@ public class VisitService {
     public void deleteById(Integer id) {
         visitRepository.deleteById(id);
     }
+
+
+//    public List<Pet> findVetsByVisit(Integer id) {
+//        Optional<Visit> pets = visitRepository.findById(id);
+//        if (pets.isPresent()) {
+//            return pets.get().getPetList();
+//        }
+//        return null;
+//    }
 }

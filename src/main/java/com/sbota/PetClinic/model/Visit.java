@@ -1,65 +1,43 @@
 package com.sbota.PetClinic.model;
 
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 
+import java.sql.Date;
+import java.util.List;
 
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
 
 @Entity
 public class Visit {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int visitId;
-    @Column(name = "visit_date")
+
     @DateTimeFormat(pattern = "yyyy/MM/dd")
-    private LocalDate date;
+    private Date date;
 
 
     @Column(name = "description")
     private String description;
-    @ManyToOne
-    @JoinColumn(name = "pet_id")
-    private Pet pet;
+//    @ManyToOne
+//    @JoinColumn(name = "pet_id")
+//    private Pet pet;
 
-    public Visit() {
-        this.date = LocalDate.now();
-    }
+//
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private Visit visitVet;
 
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    private Visit visitPet;
 
-
-    public LocalDate getDate() {
-        return this.date;
-    }
-
-
-
-    public void setDate(LocalDate date) {
-        this.date = date;
-    }
-
-
-
-    public String getDescription() {
-        return this.description;
-    }
-
-
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Pet getPet() {
-        return this.pet;
-    }
-
-
-    public void setPet(Pet pet) {
-        this.pet = pet;
-    }
 
 }
 

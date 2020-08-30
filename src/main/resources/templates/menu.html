@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" >
 <header>
     <nav th:fragment="menu_nav" xmlns:th="http://www.thymeleaf.org">
-        <div class="nav-wrapper">
+        <div class="nav-wrapper #42a5f5 blue lighten-1">
 
-            <a href="#" class="brand-logo">We love Animals!!</a>
+            <a href="#" class="brand-logo" >We love Animals!!</a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
                 <li><a th:href="@{/home}">Home</a></li>
-                <li><a th:href="@{/}">About us</a></li>
                 <li><a th:href="@{/}">Contact us</a></li>
             </ul>
         </div>

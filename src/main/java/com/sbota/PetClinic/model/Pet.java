@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -19,15 +20,18 @@ public class Pet {
     private String petName;
     private String breed;
     private String typeOfAnimal;
-    private int age;
+    private String age;
 
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet", fetch = FetchType.LAZY)
-    private Set<Visit> visits;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Vet vet;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Owner owner;
+
+
+//    @OneToMany(mappedBy = "pet" , cascade = CascadeType.ALL)
+//    private List<Visit> petVisitList;
+
 }

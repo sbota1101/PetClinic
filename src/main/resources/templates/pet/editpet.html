@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
     <!--Import Google Icon Font-->
@@ -6,15 +5,26 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
+
+    <script type="text/javascript"
+            src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="UTF-8">
-    <title>Edit pet</title>
-    <nav th:insert="home.html::menu_nav"></nav>
+    <nav th:insert="home.html::menu_nav">
+    </nav>
+    <script>
+        $(document).ready(function() {
+            $('select').formSelect();
+        });
+
+    </script>
 </head>
+
 <body>
 <div class="container">
     <div class="form">
@@ -26,6 +36,7 @@
                 <hr>
 
                 <div class="row">
+                    <input th:field="*{petId}" type="hidden">
                     <div class="input-field col s12">
 
                         <input th:field="*{petName}" id="pet_name" type="text" placeholder="Pet Name" required>
@@ -36,6 +47,26 @@
 <!--                        <label for="pet_type"><b>Pet Type</b></label>-->
                         <input th:field="*{age}" id="pet_age" type="number" placeholder="Pet Age" required>
 <!--                        <label for="pet_age"><b>Pet Age</b></label>-->
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+
+                        <select id="ownerId" th:field="*{owner.ownerId}">
+                            <option th:each="sc: ${owners}" th:value="${sc.ownerId}"
+                                    th:text="${sc.firstName + ' ' + sc.lastName}"/>
+                        </select>
+                        <label for="ownerId"><b>Owner</b></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+
+                        <select id="vetId" th:field="*{vet.vetId}">
+                            <option th:each="sc: ${vets}" th:value="${sc.vetId}"
+                                    th:text="${sc.firstName + ' ' + sc.lastName+' '+sc.speciality}"/>
+                        </select>
+                        <label for="ownerId"><b>Vets</b></label>
                     </div>
                 </div>
                 <button type="submit">Save</button>

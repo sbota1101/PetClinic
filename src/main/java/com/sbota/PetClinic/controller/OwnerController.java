@@ -63,7 +63,7 @@ public class OwnerController {
 
         return "redirect:/allowners";
     }
-    @GetMapping("/owner/{id}/allpets")
+    @GetMapping("/owner/{id}/pets")
     public String searchPetsByOwner(Model model, @PathVariable Integer id) {
         model.addAttribute("pets", ownerService.findPetsByOwner(id));
         return "owner/findpet";
