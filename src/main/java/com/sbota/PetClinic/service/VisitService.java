@@ -42,13 +42,20 @@ public class VisitService {
         visitRepository.deleteById(id);
     }
 
-    public List<Pet> findVisitByPet(Integer id) {
-        Optional<Visit> pets = visitRepository.findById(id);
-        if (pets.isPresent()) {
-            List<Pet> allpets = petRepository.findAll();
-            return allpets;
-        }
-        return null;
-
-    }
+//    public List<Pet> findVisitByPet(Integer id) {
+//        Optional<Visit> pets = visitRepository.findById(id);
+//        if (pets.isPresent()) {
+//            List<Pet> allpets = petRepository.findAll();
+//            return allpets;
+//        }
+//        return null;
+//
+//    }
+//public List<Pet> findVisitByPet(Integer id) {
+//    Optional<Visit> petlist = visitRepository.findById(id);
+//    if (petlist.isPresent()) {
+//        return petlist.get().pets();
+//    }
+//    return null;
+//}
 }

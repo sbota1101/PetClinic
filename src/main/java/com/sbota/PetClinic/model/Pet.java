@@ -23,15 +23,17 @@ public class Pet {
     private int age;
 
 
-
     @ManyToOne(fetch = FetchType.LAZY)
     private Vet vet;
 
     @ManyToOne(fetch = FetchType.LAZY)
     private Owner owner;
-    @OneToMany(mappedBy = "pet",cascade = CascadeType.ALL)
+        @OneToMany(mappedBy = "pet",cascade = CascadeType.ALL)
     private List<Visit> visits;
-
+//    @ManyToMany
+//    @JoinTable(name = "pet_visit", joinColumns = @JoinColumn(name = "PetId"),
+//            inverseJoinColumns = @JoinColumn(name = "visitId"))
+//    private List<Visit> visits;
 
 
 }

@@ -37,11 +37,16 @@ public class PetService {
         petRepository.deleteById(id);
     }
 
-        public List<Visit> findVisitsByPet(Integer id) {
+    public List<Visit> findVisitsByPet(Integer id) {
         Optional<Pet> pets = petRepository.findById(id);
         if (pets.isPresent()) {
             return pets.get().getVisits();
         }
         return null;
+    }
+
+    public List<Pet> findAllPets() {
+        List<Pet>pets=petRepository.findAll();
+        return pets;
     }
 }

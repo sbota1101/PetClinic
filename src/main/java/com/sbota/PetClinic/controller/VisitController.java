@@ -1,6 +1,8 @@
 package com.sbota.PetClinic.controller;
 
+import com.sbota.PetClinic.model.Pet;
 import com.sbota.PetClinic.model.Visit;
+import com.sbota.PetClinic.service.PetService;
 import com.sbota.PetClinic.service.VisitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,15 +18,20 @@ import java.util.List;
 public class VisitController {
     @Autowired
     private VisitService visitService;
+    @Autowired
+    private PetService petService;
 
     @GetMapping("allvisits")
     public String showAllVisits(Model model) {
 
         List<Visit> visits = visitService.findAll();
         model.addAttribute("visits", visits);
+        model.addAttribute("pets", petService.findAllPets());
 
         return "visit/allvisits";
     }
+
+
 
     @GetMapping("/addvisit")
     public String addVisit(Model model) {
@@ -63,10 +70,10 @@ public class VisitController {
 
         return "redirect:/allvisits";
     }
-    @GetMapping("/visit/{id}/pets")
-    public String searchVisitsByPet(Model model,@PathVariable Integer id) {
-        model.addAttribute("pets", visitService.findVisitByPet(id));
-        return "visit/findpet";
-    }
+//    @GetMapping("/visit/{id}/pets")
+//    public String searchVisitsByPet(Model model,@PathVariable Integer id) {
+//        model.addAttribute("pets", visitService.findVisitByPet(id));
+//        return "visit/findpet";
+//    }
 
 }

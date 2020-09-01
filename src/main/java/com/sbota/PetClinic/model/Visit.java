@@ -27,10 +27,15 @@ public class Visit {
 
     @Column(name = "description")
     private String description;
-
+    //
     @ManyToOne(fetch = FetchType.LAZY)
     private Pet pet;
 
+    public List<Pet> pets() {
+        return pets();
+    }
+//    @ManyToMany(mappedBy = "visits")
+//    private List<Pet> pets;
 }
 
 
