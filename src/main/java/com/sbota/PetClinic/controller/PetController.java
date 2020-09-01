@@ -73,9 +73,17 @@ public class PetController {
 
         return "redirect:/allpets";
     }
-//    @GetMapping("/pet/{id}/visits")
-//    public String searchVisitsByPet(Model model, @PathVariable Integer id) {
-//        model.addAttribute("visits", petService.findVisitsByPet(id));
-//        return "pet/findvisit";
-//    }
+    @GetMapping("/pet/{id}/visits")
+    public String searchVisitsByPet(Model model, @PathVariable Integer id) {
+        model.addAttribute("visits", petService.findVisitsByPet(id));
+        return "pet/findvisit";
+    }
+    @GetMapping("allpetsphoto")
+    public String showAllPetsPhoto(Model model) {
+
+        List<Pet> pets = petService.findAll();
+        model.addAttribute("pets", pets);
+
+        return "pet/allpetsphoto";
+    }
 }

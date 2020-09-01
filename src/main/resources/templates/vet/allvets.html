@@ -18,7 +18,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>Vet</h1>
+    <h1>Vets</h1>
     <a th:href="@{/addvet}">
         <i class="small material-icons">add</i>
     </a>
@@ -43,7 +43,13 @@
                     <i class="small material-icons">create</i>
                 </a>
                 <a th:href="@{/deletevet/{id}(id = ${s.vetId})}">
-                    <i class="small material-icons">delete</i>
+                    <i class="small material-icons"
+                       onclick="deleteAlert()">delete</i>
+                    <script>
+                        function deleteAlert() {
+                            alert("You are sure you want to delete this vet from the list? ");
+                        }
+                    </script>
                 </a>
                 <a th:href="@{/vet/{id}/pets(id = ${s.vetId})}">
                     <i class="small material-icons">pets</i>

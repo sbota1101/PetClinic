@@ -3,6 +3,7 @@ package com.sbota.PetClinic.service;
 import com.sbota.PetClinic.model.Pet;
 import com.sbota.PetClinic.model.Visit;
 import com.sbota.PetClinic.repository.PetRepository;
+import com.sbota.PetClinic.repository.VisitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,7 @@ import java.util.Optional;
 public class PetService {
     @Autowired
     private PetRepository petRepository;
+
 
     public List<Pet> findAll() {
         return petRepository.findAll();
@@ -35,11 +37,11 @@ public class PetService {
         petRepository.deleteById(id);
     }
 
-//        public List<Visit> findVisitsByPet(Integer id) {
-//        Optional<Pet> pets = petRepository.findById(id);
-//        if (pets.isPresent()) {
-//            return pets.get().getVisits();
-//        }
-//        return null;
-//    }
+        public List<Visit> findVisitsByPet(Integer id) {
+        Optional<Pet> pets = petRepository.findById(id);
+        if (pets.isPresent()) {
+            return pets.get().getVisits();
+        }
+        return null;
+    }
 }

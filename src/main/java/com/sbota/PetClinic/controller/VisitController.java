@@ -29,7 +29,7 @@ public class VisitController {
     @GetMapping("/addvisit")
     public String addVisit(Model model) {
         model.addAttribute("visit", new Visit());
-        return "visit/editvisit";
+        return "visit/addvisit";
     }
 
     @PostMapping("/addvisit")
@@ -62,6 +62,11 @@ public class VisitController {
         visitService.deleteById(id);
 
         return "redirect:/allvisits";
+    }
+    @GetMapping("/visit/{id}/pets")
+    public String searchVisitsByPet(Model model,@PathVariable Integer id) {
+        model.addAttribute("pets", visitService.findVisitByPet(id));
+        return "visit/findpet";
     }
 
 }

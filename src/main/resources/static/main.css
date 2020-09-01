@@ -52,4 +52,8 @@ h2,h1 {
     .background{
     background-color: coral;
     }
-
+.container{
+text-align:bottom;
+margin:15px;
+image:align:left;
+}

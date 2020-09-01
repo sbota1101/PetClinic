@@ -17,7 +17,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>Visit</h1>
+    <h1>Visits</h1>
     <a th:href="@{/addvisit}">
         <i class="small material-icons">add</i>
     </a>
@@ -43,7 +43,14 @@
                     <i class="small material-icons">create</i>
                 </a>
                 <a th:href="@{/deletevisit/{id}(id = ${s.visitId})}">
-                    <i class="small material-icons">delete</i>
+                    <i class="small material-icons"
+                       onclick="deleteAlert()">delete</i>
+                    <script>
+                        function deleteAlert() {
+                            alert("You are sure you want to delete this visit from the list? ");
+                        }
+                    </script>
+                </a>
                 </a>
 
 <!--                <a th:href="@{/owner/{id}/pets(id = ${s.ownerId})}">-->
