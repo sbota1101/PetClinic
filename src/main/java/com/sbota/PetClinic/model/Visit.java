@@ -34,8 +34,7 @@ public class Visit {
     public List<Pet> pets() {
         return pets();
     }
-//    @ManyToMany(mappedBy = "visits")
-//    private List<Pet> pets;
+
 }
 
 

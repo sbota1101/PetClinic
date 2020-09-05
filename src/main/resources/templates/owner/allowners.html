@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -14,18 +15,44 @@
     <meta charset="UTF-8">
     <title>Owner view</title>
     <nav th:insert="home.html::menu_nav"></nav>
+    <style>
+        ::placeholder
+        {
+            color: black;}
+
+    </style>
+    <script>
+        function searchKeyUpOwnerName() {
+            // Declare variables
+            var input, filter, spans, i, txtValue, trs;
+            input = document.getElementById('searchOwnerName');
+            filter = input.value.toUpperCase();
+            spans = document.getElementsByClassName('owner_name');
+            trs = document.getElementsByClassName('owner');
+            // Loop through all list items, and hide those who don't match the search query
+            for (i = 0; i < spans.length; i++) {
+                txtValue = spans[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    trs[i].style.display = "";
+                } else {
+                    trs[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 </head>
 <body>
 <div class="container">
     <h1>Owners</h1>
-    <a th:href="@{/addowner}">
-        <a class="btn-floating btn-large pulse left black" ><i class="material-icons " >add</i>
+    <a th:href="@{/addowner}" class="btn-floating btn-large pulse left black" ><i class="material-icons " >add</i>
     </a>
     <table>
         <thead>
+        <td> <input type="text" onkeyup="searchKeyUpOwnerName()"
+                    name="searchOwnerName" id="searchOwnerName"
+                    placeholder="Search owner name"/></td>
         <tr>
             <td>Owner Id</td>
-            <td>Owner First Name</td>
             <td>Owner Last Name</td>
             <td>City</td>
             <td>Address</td>
@@ -34,9 +61,9 @@
         </thead>
         <tbody>
 
-        <tr th:each="s : ${owners}">
+        <tr th:each="s : ${owners}" class="owner">
             <td th:text="${s.ownerId}"></td>
-            <td th:text="${s.firstName}"></td>
+            <td><span  th:text="${s.firstName}" class="owner_name"></span></td>
             <td th:text="${s.lastName}"></td>
             <td th:text="${s.city}"></td>
             <td th:text="${s.address}"></td>

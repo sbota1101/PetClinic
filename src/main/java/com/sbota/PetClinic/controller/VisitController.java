@@ -1,17 +1,18 @@
 package com.sbota.PetClinic.controller;
-
-import com.sbota.PetClinic.model.Pet;
 import com.sbota.PetClinic.model.Visit;
+import com.sbota.PetClinic.service.GeneratePdf;
 import com.sbota.PetClinic.service.PetService;
 import com.sbota.PetClinic.service.VisitService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
+import java.io.ByteArrayInputStream;
 import java.util.List;
 
 @Controller
@@ -32,7 +33,6 @@ public class VisitController {
     }
 
 
-
     @GetMapping("/addvisit")
     public String addVisit(Model model) {
         model.addAttribute("visit", new Visit());
@@ -46,14 +46,14 @@ public class VisitController {
         return "redirect:/allvisits";
 
     }
+
     @GetMapping("/editvisit/{id}")
     public String editVisit(Model model, @PathVariable Integer id) {
 
         Visit visit = visitService.findById(id);
-        model.addAttribute("visit",visit);
+        model.addAttribute("visit", visit);
         return "visit/editvisit";
     }
-
 
 
     @PostMapping("/editvisit/{id}")
@@ -72,5 +72,18 @@ public class VisitController {
         return "redirect:/allvisits";
     }
 
+    @RequestMapping(value = "/visit/pdf/", method = RequestMethod.GET, produces = MediaType.APPLICATION_PDF_VALUE)
+    public ResponseEntity<InputStreamResource> visittAsPdf() {
+
+        ByteArrayInputStream bis = GeneratePdf.generate(visitService.findAll());
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Disposition", "inline; filename=" + "visits");
+        return ResponseEntity
+                .ok()
+                .headers(headers)
+                .contentType(MediaType.APPLICATION_PDF)
+                .body(new InputStreamResource(bis));
+
+    }
 
 }

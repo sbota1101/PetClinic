@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -15,27 +14,56 @@
     <meta charset="UTF-8">
     <title>Vet view</title>
     <nav th:insert="home.html::menu_nav"></nav>
+    <style>
+        ::placeholder
+        {
+            color: black;}
+
+    </style>
+    <script>
+        function searchKeyUpVetName() {
+            // Declare variables
+            var input, filter, spans, i, txtValue, trs;
+            input = document.getElementById('searchVetName');
+            filter = input.value.toUpperCase();
+            spans = document.getElementsByClassName('vet_name');
+            trs = document.getElementsByClassName('vet');
+            // Loop through all list items, and hide those who don't match the search query
+            for (i = 0; i < spans.length; i++) {
+                txtValue = spans[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    trs[i].style.display = "";
+                } else {
+                    trs[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 </head>
 <body>
 <div class="container">
     <h1>Vets</h1>
-    <a th:href="@{/addvet}">
-        <a class="btn-floating btn-large pulse left black" ><i class="material-icons " >add</i>
+
+    <a  th:href="@{/addvet}"class="btn-floating btn-large pulse left black" ><i class="material-icons " >add</i>
     </a>
     <table>
         <thead>
-        <tr>
+        <td>
+            <input type="text" onkeyup="searchKeyUpVetName()"
+                   name="searchVetName" id="searchVetName"
+                   placeholder="Search vet name"/>
+        </td>
+        <tr >
             <td>Vet Id</td>
-            <td>Vet First Name</td>
             <td>Vet Last Name</td>
             <td>Speciality</td>
         </tr>
         </thead>
         <tbody>
 
-        <tr th:each="s : ${vets}">
+        <tr th:each="s : ${vets}" class="vet">
             <td th:text="${s.vetId}"></td>
-            <td th:text="${s.firstName}"></td>
+            <td><span th:text="${s.firstName}" class="vet_name"></span></td>
             <td th:text="${s.lastName}"></td>
             <td th:text="${s.speciality}"></td>
             <td>

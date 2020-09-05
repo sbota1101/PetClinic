@@ -14,15 +14,122 @@
     <meta charset="UTF-8">
     <title>Pet view</title>
     <nav th:insert="home.html::menu_nav"></nav>
+    <style>
+        ::placeholder
+        {
+        color: black;}
+
+    </style>
+    <script>
+        function searchKeyUpPetName() {
+    // Declare variables
+    var input, filter, spans, i, txtValue, trs;
+    input = document.getElementById('searchPetName');
+    filter = input.value.toUpperCase();
+    spans = document.getElementsByClassName('pet_name');
+    trs = document.getElementsByClassName('pet');
+    // Loop through all list items, and hide those who don't match the search query
+    for (i = 0; i < spans.length; i++) {
+        txtValue = spans[i].innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            trs[i].style.display = "";
+        } else {
+            trs[i].style.display = "none";
+        }
+    }
+    }
+    </script>
+<!--    <script>-->
+<!--        function searchKeyUpPetBreed() {-->
+<!--            // Declare variables-->
+<!--            var input, filter, spans, i, txtValue, trs;-->
+<!--            input = document.getElementById('searchPetBreed');-->
+<!--            filter = input.value.toUpperCase();-->
+<!--            spans = document.getElementsByClassName('pet_breed');-->
+<!--            trs = document.getElementsByClassName('pet');-->
+<!--            // Loop through all list items, and hide those who don't match the search query-->
+<!--            for (i = 0; i < spans.length; i++) {-->
+<!--                txtValue = spans[i].innerText;-->
+<!--                if (txtValue.toUpperCase().indexOf(filter) > -1) {-->
+<!--                    trs[i].style.display = "";-->
+<!--                } else {-->
+<!--                    trs[i].style.display = "none";-->
+<!--                }-->
+<!--            }-->
+<!--        }-->
+<!--    </script>-->
+<!--    <script>-->
+<!--        function searchKeyUpPetType() {-->
+<!--            // Declare variables-->
+<!--            var input, filter, spans, i, txtValue, trs;-->
+<!--            input = document.getElementById('searchPetType');-->
+<!--            filter = input.value.toUpperCase();-->
+<!--            spans = document.getElementsByClassName('pet_type');-->
+<!--            trs = document.getElementsByClassName('pet');-->
+<!--            // Loop through all list items, and hide those who don't match the search query-->
+<!--            for (i = 0; i < spans.length; i++) {-->
+<!--                txtValue = spans[i].innerText;-->
+<!--                if (txtValue.toUpperCase().indexOf(filter) > -1) {-->
+<!--                    trs[i].style.display = "";-->
+<!--                } else {-->
+<!--                    trs[i].style.display = "none";-->
+<!--                }-->
+<!--            }-->
+<!--        }-->
+<!--    </script>-->
+<!--    <script>-->
+<!--        function searchKeyUpPetAge() {-->
+<!--            // Declare variables-->
+<!--            var input, filter, spans, i, txtValue, trs;-->
+<!--            input = document.getElementById('searchPetAge');-->
+<!--            filter = input.value.toUpperCase();-->
+<!--            spans = document.getElementsByClassName('pet_age');-->
+<!--            trs = document.getElementsByClassName('pet');-->
+<!--            // Loop through all list items, and hide those who don't match the search query-->
+<!--            for (i = 0; i < spans.length; i++) {-->
+<!--                txtValue = spans[i].innerText;-->
+<!--                if (txtValue.toUpperCase().indexOf(filter) > -1) {-->
+<!--                    trs[i].style.display = "";-->
+<!--                } else {-->
+<!--                    trs[i].style.display = "none";-->
+<!--                }-->
+<!--            }-->
+<!--        }-->
+<!--    </script>-->
 </head>
 <body>
 <div class="container">
     <h1>Pets</h1>
-    <a th:href="@{/addpet}">
-        <a class="btn-floating btn-large pulse left black" ><i class="material-icons " >add</i>
+
+    <a th:href="@{/addpet}" class="btn-floating btn-large pulse left black" ><i class="material-icons " >add</i>
     </a>
     <table>
         <thead>
+        <tr>
+
+            <td>
+
+                <input type="text" onkeyup="searchKeyUpPetName()"
+                       name="searchPetName" id="searchPetName"
+                       placeholder="Search pet name"/>
+
+            </td>
+<!--            <td>-->
+<!--                <input type="text" onkeyup="searchKeyUpPetBreed()"-->
+<!--                       name="searchPetBreed" id="searchPetBreed"-->
+<!--                       placeholder="pet breed"/>-->
+<!--            </td>-->
+<!--            <td>-->
+<!--                <input type="text" onkeyup="searchKeyUpPetType()"-->
+<!--                       name="searchPetType" id="searchPetType"-->
+<!--                       placeholder="pet type"/>-->
+<!--            </td>-->
+<!--            <td>-->
+<!--                <input type="text" onkeyup="searchKeyUpPetAge()"-->
+<!--                       name="searchPetAge" id="searchPetAge"-->
+<!--                       placeholder="pet age"/>-->
+<!--            </td>-->
+        </tr>
         <tr>
             <td>Pet Id</td>
             <td>Pet Name</td>
@@ -33,12 +140,13 @@
         </thead>
         <tbody>
 
-        <tr th:each="s : ${pets}">
+        <!--        <td><span class="first_name" th:text="${c.firstName}">Prenume </span></td>-->
+        <tr th:each="s : ${pets}" class="pet">
             <td th:text="${s.petId}"></td>
-            <td th:text="${s.petName}"></td>
-            <td th:text="${s.breed}"></td>
-            <td th:text="${s.typeOfAnimal}"></td>
-            <td th:text="${s.age}"></td>
+            <td><span th:text="${s.petName}" class="pet_name "></span> </td>
+            <td><span th:text="${s.breed}" class="pet_breed"></span></td>
+            <td><span th:text="${s.typeOfAnimal}" class="pet_type"></span></td>
+            <td><span th:text="${s.age}" class="pet_age"></span></td>
 
             <td>
                 <a th:href="@{/editpet/{id}(id = ${s.petId})}">

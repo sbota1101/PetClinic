@@ -14,12 +14,12 @@
     <meta charset="UTF-8">
     <title>Visit view</title>
     <nav th:insert="home.html::menu_nav"></nav>
+
 </head>
 <body>
 <div class="container">
     <h1>Visits</h1>
-    <a th:href="@{/addvisit}">
-        <a class="btn-floating btn-large pulse left black" ><i class="material-icons " >add</i>
+        <a class="btn-floating btn-large pulse left black"th:href="@{/addvisit}" ><i class="material-icons " >add</i>
     </a>
     <table>
         <thead>
@@ -50,12 +50,11 @@
                             alert("You are sure you want to delete this visit from the list? ");
                         }
                     </script>
-                </a>
-                </a>
 
-<!--                <a th:href="@{/owner/{id}/pets(id = ${s.ownerId})}">-->
-<!--                    <i class="small material-icons">pets</i>-->
-<!--                </a>-->
+                </a>
+                <a th:href="@{/visit/pdf/}">
+                    <i class="small material-icons">assignment</i>
+                </a>
 
             </td>
         </tr>

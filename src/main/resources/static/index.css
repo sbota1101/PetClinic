@@ -50,3 +50,10 @@ body{
     width: 100%;
     height: 2.5rem;            /* Footer height */
 }
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: black;
+  opacity: 1; /* Firefox */
+}
+::select{
+text-color:black;
+}
