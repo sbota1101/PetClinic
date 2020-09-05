@@ -21,8 +21,8 @@ h2,h1 {
       left: 0;
       background-color: #111;
     }
-    /* Control the right side */
-    .right {
+     Control the right side */
+   .right {
       right: -50%;
       background-color: red;
     }
@@ -35,11 +35,11 @@ h2,h1 {
       text-align: center;
     }
     /* Style the image inside the centered container, if needed */
-    /*.centered img {
+    .centered img {
                      width: 150px;
                      border-radius: 50%;
                    }
-                   */
+
     .tabular{
     font-size: 10px;
     		line-height: 1.0em;
@@ -56,4 +56,12 @@ h2,h1 {
 text-align:bottom;
 margin:15px;
 image:align:left;
+}
+body{
+    background-image:url("/images/fundalHtml1.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+tbody i {
+    color: black !important;
 }

@@ -15,18 +15,18 @@
 
     <meta charset="UTF-8">
 <nav th:fragment="menu_nav" xmlns:th="http://www.thymeleaf.org">
-    <div class="nav-wrapper #42a5f5 blue lighten-1">
-
-        <a class="btn-floating btn-large pulse right black" th:href="@{/home}"><i class="material-icons " >pets</i> </a>
+    <div class="nav-wrapper #4dd0e1 cyan lighten-2">
+        <link href="index.css" rel="stylesheet" type="text/css">
+        <a class="btn-floating btn-large pulse right black" th:href="@{/}"><i class="material-icons " >pets</i> </a>
 
         <a href="#" data-target="mobile-demo" class="sidenav-trigger #42a5f5 blue lighten-1"><i class="material-icons">menu</i></a>
-        <ul id="nav-mobile" class="left hide-on-med-and-down #42a5f5 blue lighten-1">
+        <ul id="nav-mobile" class="left hide-on-med-and-down #4dd0e1 cyan lighten-2">
 
             <li><a th:href="@{/allvets}">Vets</a></li>
             <li><a th:href="@{/allpets}">Pets</a></li>
             <li><a th:href="@{/allowners}">Owners</a></li>
             <li><a th:href="@{/allvisits}">Visits</a></li>
-            <li ><a  th:href="@{/allpetsphoto}" ><i class="small material-icons">pets</i></a></li>
+            <li><a  th:href="@{/allpetsphoto}" ><i class="material-icons " style=" font-size:40px" >burst_mode</i></a></li>
 
         </ul>
     </div>
@@ -40,9 +40,7 @@
 
 </head>
 <body>
-<h1>Pet Clinic </h1>
-<img alt="Studiu: Pisicile sunt la fel de inteligente precum câinii" class="n3VNCb" align="center" src="https://s.iw.ro/gateway/g/ZmlsZVNvdXJjZT1odHRwJTNBJTJGJTJG/c3RvcmFnZTA3dHJhbnNjb2Rlci5yY3Mt/cmRzLnJvJTJGc3RvcmFnZSUyRjIwMTcl/MkYwMSUyRjI2JTJGNzMzNTA5XzczMzUw/OV9waXNpY2Etc2ktY2F0ZWwuanBnJnc9/NzgwJmg9NDQwJmhhc2g9Njg4NmY0ODA4ODM4MDI3MmNiMDJjZGFjZjQyOWVlMGE=.thumb.jpg" data-noaft="1" jsname="HiaYvf" jsaction="load:XAeZkd,gvK6lb;" style="width: 433px; height: 244.256px; margin: 0px;">
-<!--<p>Personalul specializat în domeniul veterinar vă oferă servicii la cele mai înalte standarde: radiologie digitală, chirurgie laser, terapie laser, anestezie inhalatorie cu Isofluran, monitorizare intra-operatorie, spitalizare, analize de sânge şi urină, teste rapide de diagnostic, examene coproparazitologice, examene microscopice, examene histopatologice şi citologice, examene ecografice, inclusiv diagnostic şi monitorizare gestaţie, asistenţă la fătare, examene dermatologice, EKG, implantări de  microcipuri, vaccinări şi deparazitari, consultaţii şi tratamente.</p>-->
-<!--<p>De asemenea, animaluţul dumneavoastră poate beneficia de serviciile salonului de cosmetică felină şi canină, inclusiv maşina automată de spălat caţei, cât şi de calitatea produselor germane din pet shop-ul clinicii.</p>-->
+<h1 class="center">Pet Clinic </h1>
+
 
 </body>

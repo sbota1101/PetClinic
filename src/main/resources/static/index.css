@@ -1,0 +1,52 @@
+.center{
+    text-align: center;
+    margin-bottom: 15px;
+    border-style: none;
+}
+/*.centerImg{*/
+/*    border-style: none;*/
+/*    border-width: 1px;*/
+/*    border-radius: 0px;*/
+/*    max-width: 100%;*/
+/*    height: auto;*/
+/*}*/
+/*.transparent {*/
+/*    filter:alpha(opacity=50);*/
+/*    -moz-opacity:0.5;*/
+/*    -khtml-opacity: 0.5;*/
+/*    opacity: 0.5;*/
+/*}*/
+
+tbody i {
+    color: black !important;
+}
+
+
+body{
+    background-image:url("/images/fundalHtml2.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+.footer-right{
+    text-align: left;
+    padding-left:30px;
+    width: 33%;
+    height: 60px;
+}
+.footer-left{
+    text-align: right;
+    padding-right:30px;
+    width: 33%;
+    height: 60px;
+}
+.blue-class{
+    color: blue;
+
+}
+
+#footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;            /* Footer height */
+}

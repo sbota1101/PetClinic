@@ -26,7 +26,7 @@ public class VisitController {
 
         List<Visit> visits = visitService.findAll();
         model.addAttribute("visits", visits);
-        model.addAttribute("pets", petService.findAllPets());
+
 
         return "visit/allvisits";
     }
@@ -36,6 +36,7 @@ public class VisitController {
     @GetMapping("/addvisit")
     public String addVisit(Model model) {
         model.addAttribute("visit", new Visit());
+        model.addAttribute("pets", petService.findAllPets());
         return "visit/addvisit";
     }
 
@@ -70,10 +71,6 @@ public class VisitController {
 
         return "redirect:/allvisits";
     }
-//    @GetMapping("/visit/{id}/pets")
-//    public String searchVisitsByPet(Model model,@PathVariable Integer id) {
-//        model.addAttribute("pets", visitService.findVisitByPet(id));
-//        return "visit/findpet";
-//    }
+
 
 }
