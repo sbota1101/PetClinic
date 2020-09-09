@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      xmlns:background-image="http://www.w3.org/1999/xhtml">
 <head>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -16,14 +17,18 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="UTF-8">
-    <nav th:insert="home.html::menu_nav">
-    </nav>
+
+
     <script>
         $(document).ready(function() {
             $('select').formSelect();
         });
 
     </script>
+
+    <nav th:insert="home.html::menu_nav">
+    </nav>
+
 </head>
 <body>
 <div class="container">
@@ -46,7 +51,7 @@
                         <!--                        <label for="pet_type"><b>Pet Type</b></label>-->
                         <input th:field="*{age}" id="pet_age" type="number" name="Pet Age" min="1" max="25">
 <!--                        <label for="pet_age"><b>Pet Age</b></label>-->
-
+                        <input th:field="*{imagine}" id="pet_imagine" type="image" placeholder="Pet Picture" required>
                     </div>
                 </div>
                 <div class="row">
@@ -56,7 +61,7 @@
                             <option th:each="sc: ${owners}" th:value="${sc.ownerId}"
                                     th:text="${sc.firstName + ' ' + sc.lastName}"/>
                         </select>
-                        <label for="ownerId"><b>Owner</b></label>
+                        <label for="ownerId" color="black"><b>Owner</b></label>
                     </div>
                 </div>
                 <div class="row">
@@ -65,20 +70,22 @@
                             <option th:each="sc: ${vets}" th:value="${sc.vetId}"
                                     th:text="${sc.firstName + ' ' + sc.lastName+' '+sc.speciality}"/>
                         </select>
-                        <label for="vetId"><b>Vets</b></label>
+                        <label for="vetId" color="black"><b>Vets</b></label>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <select id="pet" name="pets">
+                            <option img th:src="@{/images/Bunny.png}" class="circle " max-width="100" height="75">Bunny</option>
+                            <option img th:src="@{/images/Cinnamon.png}" class="circle " max-width="100" height="75">Cinnamon</option>
+                            <option img th:src="@{/images/Foxy.png}" class="circle " max-width="100" height="75">Foxy</option>
+                            <option img th:src="@{/images/Maia.png}" class="circle " max-width="100" height="75">Maia</option>
+                            <option img th:src="@{/images/Rex.png}" class="circle " max-width="100" height="75">Rex</option>
+                            <option img th:src="@{/images/Oli.jpg}" class="circle " max-width="100" height="75">Oli</option>
+                        </select>
+                        <label for="pet"><b>Choose a picture:</b></label>
 
-<!--        <label for="pet">Choose a photo:</label>-->
-
-<!--        <select name="pets" id="pet">-->
-<!--            <option value="Bunny"><img src="@{/images/caine1.jpg.png}" alt="" /> Bunny-->
-<!--                </label></option>-->
-<!--            <option style="background-image:url(caine1.jpg.png);">male</option>-->
-<!--            <option value="Cinnamon"><img src="@{/images/corgi-animals.jpg.png}" class="circle " max-width="200" height="150" ></option>-->
-<!--&lt;!&ndash;            <option value="audi">Audi</option>&ndash;&gt;-->
-<!--        </select>-->
-                <button type="submit">Save</button>
+                    <button type="submit">Save</button>
             </form>
         </div>
     </div>

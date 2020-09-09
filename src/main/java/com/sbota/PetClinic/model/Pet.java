@@ -21,6 +21,7 @@ public class Pet {
     private String breed;
     private String typeOfAnimal;
     private int age;
+    private String imagine;
 
 
     @ManyToOne(fetch = FetchType.LAZY)

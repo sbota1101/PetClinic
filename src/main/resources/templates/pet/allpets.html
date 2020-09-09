@@ -136,6 +136,7 @@
             <td>Breed</td>
             <td>Pet Type</td>
             <td>Pet Age</td>
+            <td>Pet Picture</td>
         </tr>
         </thead>
         <tbody>
@@ -147,13 +148,13 @@
             <td><span th:text="${s.breed}" class="pet_breed"></span></td>
             <td><span th:text="${s.typeOfAnimal}" class="pet_type"></span></td>
             <td><span th:text="${s.age}" class="pet_age"></span></td>
+            <td><span th:text="${s.imagine}" class="pet_imagine"></span></td>
 
             <td>
                 <a th:href="@{/editpet/{id}(id = ${s.petId})}">
                     <i class="small material-icons">create</i>
                 </a>
-                <!--                <a th:href="@{/deletepet/{id}(id = ${s.petId})}">-->
-                <!--                    <i class="small material-icons">delete</i>-->
+
                 <a th:href="@{/deletepet/{id}(id = ${s.petId})}">
                     <i class="small material-icons"
                        onclick="deleteAlert()">delete</i>
