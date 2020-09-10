@@ -7,7 +7,6 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
-    <script href="../static/main.css" th:href="@{/main.css}" rel="stylesheet" type="text/css">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
@@ -20,49 +19,97 @@
 
     <div th:insert="menu.html::menu_nav">
     </div>
+    <!--    <link href="main.css" rel="stylesheet" type="text/css">-->
+    <link href="index.css" rel="stylesheet" type="text/css">
+    <link href="footer.css" rel="stylesheet" type="text/css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 
     <a th:href="@{/home}"></a>
-    <title>Pet Clinic</title>
-
+    <title>Pet Clinic </title>
+<style>
+      body{
+            background-image:url("https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=282&q=80");
+            background-attachment: fixed;
+            background-size: cover;
+        }
+             <img th:src="@{/images/logo.png}" class="brand-logo"  max-width="90%" height="90%" style="float: left;padding-left: 1%" !important>
+</style>
 
 </head>
 <body>
-
-<h1 class="center">Pet Clinic </h1>
-<h5 class="center">“Animals do speak, but only to those who know how to listen!”</h5>
-<div>
+<div class="container">
+    <h1 class="center"> <i class="fa fa-paw" aria-hidden="true"></i>  Pet Clinic  <i class="fa fa-paw" aria-hidden="true"></i> </h1>
+    <h5 class="center">“Animals do speak, but only to those who know how to listen!”</h5>
+    <div>
     <span>
         <figure data-content-type="image" data-appearance="full-width" data-element="main" class="center">
             <img src="https://www.jollyes.co.uk/media/wysiwyg/p/e/pet-clinic-head.jpg"
                  alt="Pet clinic"
-                 style="border-style: none; border-width: 1px; border-radius: 0px; max-width: 100%; height: auto;"/>
+                 class="centerImg"/>
+
         </figure>
     </span>
+        <div class="text-font">
+            <h5 >A Warm Welcome to <b>Pet Clinic</b></h5>
+            <h5> We invite you to contact us today to discuss your pet’s care</h5>
+            <h5>  We offer a 24 hour Emergency Service</h5>
+        </div>
+    </div>
+
 </div>
+<footer class="footer1">
+    <div class="wrapper-footer">
+        <div id="right">
+            <div>
+                <ul >
+                    <li><a href="https://www.facebook.com/happypetclinic.ro/" rel="link facebook"><i class="fa fa-facebook-official" aria-hidden="true" style="color:dodgerblue"> Facebook</i></a>
+                    </li>
+                    <li>
+                        <a href="https://www.google.com/maps/place/Strada+Ion+Neculce+67,+Bucure%C8%99ti/@44.4582342,26.0737586,18z/data=!3m1!4b1!4m5!3m4!1s0x40b2021cfeaeac7b:0xdc69086e4c8b98cd!8m2!3d44.4582342!4d26.0748609" rel="link address"><i class="fa fa-location-arrow" aria-hidden="true" style="color:dodgerblue">Address </i></a>
+                    </li>
+                    <li>
+                        <i class="fa fa-phone" aria-hidden="true" style="color:dodgerblue" > 021 666 5821</i>
+                    </li>
+                    <li style="color: black"> <br>© 2020 Copyright Pet Clinic</li>
+                </ul>
 
-<footer >
-
-
-        <div class="footer-right" >
-            <h5 >Footer Content</h5>
-            <p >You can use rows and columns here to organize your footer content.</p>
+            </div>
         </div>
-        <div  class="footer-right">
-            <h5 >Links</h5>
-            <ul>
-                <li><a href="#!">Link 1</a></li>
-                <li><a href="#!">Link 2</a></li>
-                <li><a href="#!">Link 3</a></li>
-                <li><a href="#!">Link 4</a></li>
-            </ul>
-        </div>
-        <!--            <div th:with="frag=~{footer :: #main/text()}">-->
-        <!--                <p th:insert="${frag}">-->
-        <!--            </div>-->
-        <!--        </div>-->
+
+
+    </div>
 
 </footer>
+
+<!-- Site footer -->
+<!--<footer class="footer1" >-->
+<!--    <div class="wrapper-footer" >-->
+<!--        <div class="left">-->
+<!--            <div class="col l6 s12">-->
+<!--                <h5 class="white-text">Footer Content</h5>-->
+<!--                <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>-->
+<!--            </div>-->
+<!--            <div class="right">-->
+<!--                <h5 class="white-text">Links</h5>-->
+<!--                <ul>-->
+<!--                    <li><a href="#!">Link 1</a></li>-->
+<!--                    <li><a href="#!">Link 2</a></li>-->
+<!--                    <li><a href="#!">Link 3</a></li>-->
+<!--                    <li><a href="#!">Link 4</a></li>-->
+<!--                </ul>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="footer-copyright">-->
+<!--        <div class="container">-->
+<!--            © 2014 Copyright Text-->
+<!--            <a class="grey-text text-lighten-4 right" href="#!">More Links</a>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</footer>-->
+
+
 </body>
 </html>
 
