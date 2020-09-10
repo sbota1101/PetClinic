@@ -17,13 +17,19 @@
 
 
 <header>
+
     <nav th:fragment="menu_nav" xmlns:th="http://www.thymeleaf.org">
         <div class="nav-wrapper  #4dd0e1 cyan lighten-2">
 
-            <img th:src="@{/images/logo.png}" class="brand-logo"  max-width="90" height="65"  margin-left=300px align="left">
-            <ul id="nav-mobile" class="right hide-on-med-and-down">
+
+            <ul id="nav " class="right #4dd0e1 cyan lighten-2">
                 <li><a th:href="@{/home}">Home</a></li>
-                <li><a th:href="@{/}">Logout</a></li>
+                <li><a th:href="@{/logout}">Logout</a></li>
+            </ul>
+            <img th:src="@{/images/logo.png}" class="brand-logo"  max-width="90%" height="90%" style="float: left;padding-left: 1%">
+            <ul id="nav-wrappe" class="left #4dd0e1 cyan lighten-2 ">
+                <li><a th:href="@{/register}">Register</a></li>
+                <li><a th:href="@{/login}">Login</a></li>
             </ul>
         </div>
 

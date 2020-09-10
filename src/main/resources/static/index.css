@@ -54,9 +54,5 @@ body{
   color: black;
   opacity: 1; /* Firefox */
 }
-::select{
-text-color:black;
-}
-::label{
-text-color:black !important;
+
 }
