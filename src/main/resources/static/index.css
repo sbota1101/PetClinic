@@ -11,7 +11,7 @@ tbody i {
 
 
 body{
-    background-image:url("/images/fundalHtml2.jpg");
+    background-image:url("/images/fundalHtml2.jpg") !important;
     background-size: cover;
     background-attachment: fixed;
 }
