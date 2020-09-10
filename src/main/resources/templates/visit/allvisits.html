@@ -14,51 +14,70 @@
     <meta charset="UTF-8">
     <title>Visit view</title>
     <nav th:insert="home.html::menu_nav"></nav>
-
+    <script>
+        function searchKeyUpVisitDate() {
+            // Declare variables
+            var input, filter, spans, i, txtValue, trs;
+            input = document.getElementById('searchVisitDate');
+            filter = input.value.toUpperCase();
+            spans = document.getElementsByClassName('visit_date');
+            trs = document.getElementsByClassName('visit');
+            // Loop through all list items, and hide those who don't match the search query
+            for (i = 0; i < spans.length; i++) {
+                txtValue = spans[i].innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    trs[i].style.display = "";
+                } else {
+                    trs[i].style.display = "none";
+                }
+            }
+        }
+    </script>
 </head>
 <body>
 <div class="container">
     <h1>Visits</h1>
-        <a class="btn-floating btn-large pulse left black"th:href="@{/addvisit}" ><i class="material-icons " >add</i>
-    </a>
-    <table>
-        <thead>
-        <tr>
-            <td>Visit Id</td>
-            <td>Date</td>
-            <td>Description</td>
+    <a th:href="@{/addvisit}">
+        <a class="btn-floating btn-large pulse left black"><i class="material-icons ">add</i>
+        </a>
+        <table>
+            <thead>
+            <tr>
+                <td>Visit Id</td>
+                <td><input type="text" onkeyup="searchKeyUpVisitDate()"
+                           name="searchVisitDate" id="searchVisitDate"
+                           placeholder="Search visit date"/></td>
+                <td>Date</td>
+                <td>Description</td>
 
-        </tr>
-        </thead>
-        <tbody>
+            </tr>
+            </thead>
+            <tbody>
 
-        <tr th:each="s : ${visits}">
-            <td th:text="${s.visitId}"></td>
-            <td th:text="${s.date}"></td>
-            <td th:text="${s.description}"></td>
+            <tr th:each="s : ${visits}" class="visit">
+                <td th:text="${s.visitId}"></td>
+                <td><span th:text="${s.date}" class="visit_date"></span></td>
+                <td th:text="${s.description}"></td>
 
 
-            <td>
-                <a th:href="@{/editvisit/{id}(id = ${s.visitId})}">
-                    <i class="small material-icons">create</i>
-                </a>
-                <a th:href="@{/deletevisit/{id}(id = ${s.visitId})}">
-                    <i class="small material-icons"
-                       onclick="deleteAlert()">delete</i>
-                    <script>
-                        function deleteAlert() {
-                            confirm("You are sure you want to delete this visit from the list? ");
-                        }
-                    </script>
+                <td>
+                    <a th:href="@{/editvisit/{id}(id = ${s.visitId})}">
+                        <i class="small material-icons">create</i>
+                    </a>
+                    <a th:href="@{/deletevisit/{id}(id = ${s.visitId})}">
+                        <i class="small material-icons"
+                           onclick="deleteAlert()">delete</i>
+                        <script>
+                            function deleteAlert() {
+                                confirm("You are sure you want to delete this visit from the list? ");
+                            }
+                        </script>
+                    </a>
 
-                </a>
-                <a th:href="@{/visit/pdf/}">
-                    <i class="small material-icons">assignment</i>
-                </a>
-
-            </td>
-        </tr>
-        </tbody>
-    </table>
+                </td>
+            </tr>
+            </tbody>
+        </table>
 </div>
 </body>
+</html>
