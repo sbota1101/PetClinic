@@ -7,6 +7,7 @@
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
+    <script href="../static/main.css" th:href="@{/main.css}" rel="stylesheet" type="text/css">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
@@ -19,7 +20,7 @@
 
     <div th:insert="menu.html::menu_nav">
     </div>
-    <script href="../static/index.css" th:href="@{/index.css}" rel="stylesheet" type="text/css">
+
 
     <a th:href="@{/home}"></a>
     <title>Pet Clinic</title>
