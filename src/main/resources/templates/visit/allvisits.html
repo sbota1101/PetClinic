@@ -37,47 +37,47 @@
 <body>
 <div class="container">
     <h1>Visits</h1>
-    <a th:href="@{/addvisit}">
-        <a class="btn-floating btn-large pulse left black"><i class="material-icons ">add</i>
-        </a>
-        <table>
-            <thead>
-            <tr>
-                <td>Visit Id</td>
-                <td><input type="text" onkeyup="searchKeyUpVisitDate()"
-                           name="searchVisitDate" id="searchVisitDate"
-                           placeholder="Search visit date"/></td>
-                <td>Date</td>
-                <td>Description</td>
+    <a  th:href="@{/addvisit}"class="btn-floating btn-large pulse left black" ><i class="material-icons " >add</i>
+    </a>
+    <table>
+        <thead>
+        <tr>
+            <td>Visit Id</td>
+            <td><input type="text" onkeyup="searchKeyUpVisitDate()"
+                       name="searchVisitDate" id="searchVisitDate"
+                       placeholder="Search visit date"/></td>
+            <td>Date</td>
+            <td>Description</td>
 
-            </tr>
-            </thead>
-            <tbody>
+        </tr>
+        </thead>
+        <tbody>
 
-            <tr th:each="s : ${visits}" class="visit">
-                <td th:text="${s.visitId}"></td>
-                <td><span th:text="${s.date}" class="visit_date"></span></td>
-                <td th:text="${s.description}"></td>
+        <tr th:each="s : ${visits}" class="visit">
+            <td th:text="${s.visitId}"></td>
+            <td><span th:text="${s.date}" class="visit_date"></span></td>
+            <td th:text="${s.description}"></td>
 
 
-                <td>
-                    <a th:href="@{/editvisit/{id}(id = ${s.visitId})}">
-                        <i class="small material-icons">create</i>
-                    </a>
-                    <a th:href="@{/deletevisit/{id}(id = ${s.visitId})}">
-                        <i class="small material-icons"
-                           onclick="deleteAlert()">delete</i>
-                        <script>
+            <td>
+                <a th:href="@{/editvisit/{id}(id = ${s.visitId})}">
+                    <i class="small material-icons">create</i>
+                </a>
+                <a th:href="@{/deletevisit/{id}(id = ${s.visitId})}">
+                    <i class="small material-icons"
+                       onclick="deleteAlert()">delete</i>
+                    <script>
                             function deleteAlert() {
                                 confirm("You are sure you want to delete this visit from the list? ");
                             }
                         </script>
-                    </a>
+                </a>
 
-                </td>
-            </tr>
-            </tbody>
-        </table>
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>
