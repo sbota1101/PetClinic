@@ -1,46 +1,102 @@
+html,body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-image:url("/images/fundalHtml2.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+
+}
+.container{
+    min-height: 100%;
+    position: relative
+}
 .center{
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 2%;
     border-style: none;
 }
+.centerImg{
+    border-style: none;
+    border-width: 1px;
+    border-radius: 0px;
+    width: auto;
+    height: auto;
 
+}
+/*.transparent {*/
+/*    filter:alpha(opacity=50);*/
+/*    -moz-opacity:0.5;*/
+/*    -khtml-opacity: 0.5;*/
+/*    opacity: 0.5;*/
+/*}*/
 
 tbody i {
     color: black !important;
 }
 
 
-body{
-    background-image:url("/images/fundalHtml2.jpg") !important;
-    background-size: cover;
-    background-attachment: fixed;
-}
-.footer-right{
-    text-align: left;
-    padding-left:30px;
-    width: 33%;
-    height: 60px;
-}
-.footer-left{
-    text-align: right;
-    padding-right:30px;
-    width: 33%;
-    height: 60px;
-}
+/*.footer-right{*/
+/*    text-align: left;*/
+/*    padding-left:30px;*/
+/*    width: 33%;*/
+/*    height: 60px;*/
+/*}*/
+/*.footer-left{*/
+/*    text-align: right;*/
+/*    padding-right:30px;*/
+/*    width: 33%;*/
+/*    height: 60px;*/
+/*}*/
 .blue-class{
     color: blue;
 
 }
 
-#footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 2.5rem;            /* Footer height */
-}
+
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: black;
-  opacity: 1; /* Firefox */
+    color: black;
+    opacity: 1; /* Firefox */
 }
 
+
+main {
+    flex: 1 0 auto;
+}
+.footer1 {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    text-align: center;
+    padding-bottom: 10%;
+}
+
+.wrapper-footer{
+padding-top: 10% ;
+
+}
+#right{
+    float: right;
+    padding-right: 15%;
+
+}
+#right ul {
+    text-justify: auto;
+}
+#left{
+    clear: both;
+    float: left;
+    color: black;
+    padding-left: 3%;
+
+}
+
+.text-font{
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    text-align: center;
 }
