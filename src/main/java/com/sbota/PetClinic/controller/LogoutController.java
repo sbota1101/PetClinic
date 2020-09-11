@@ -7,6 +7,6 @@ public class LogoutController {
     @GetMapping("/logout")
     public String logoutPage(){
 
-        return "redirect:/login";
+        return "redirect:/";
     }
 }
