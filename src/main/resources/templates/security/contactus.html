@@ -49,6 +49,9 @@ body{
 
 
 </head>
+<script>
+    <form onsubmit="return false"></form>
+</script>
 <body>
 
 <div class="container">
@@ -62,12 +65,12 @@ body{
             <label for="lname"><b>Last Name</b></label>
                     <input type="text" id="lname" name="lastname" placeholder="Your last name..">
             <label for="lmail"><b>Email</b></label>
-            <input type="email" id="lmail" name="lastname" placeholder="Your address email..">
+            <input type="email" id="lmail" name="email" placeholder="Your address email..">
 
             <label for="subject"><b>Subject</b></label>
             <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
 
-            <button type="submit" value="Submit">Submit</button>
+            <button type="onsubmit" value="Submit">Submit</button>
 
         </form>
     </div>
