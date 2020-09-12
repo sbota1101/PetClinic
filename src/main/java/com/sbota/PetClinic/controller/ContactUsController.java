@@ -9,6 +9,6 @@ public class ContactUsController {
     @GetMapping("/contactus")
     public String loginPage(){
 
-        return "security/contactus";
+        return "redirect/";
     }
 }
