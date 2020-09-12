@@ -36,7 +36,7 @@ public class Pet {
 //            inverseJoinColumns = @JoinColumn(name = "visitId"))
 //    private List<Visit> visits;
 
-    @OneToOne(mappedBy = "pet")
-    private Image image;
+//    @OneToOne(mappedBy = "pet")
+//    private Image image;
 
 }

@@ -61,7 +61,7 @@ public class Image {
     public void setPic(byte[] pic){
         this.pic = pic;
     }
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "imageId", referencedColumnName = "Id")
-    private Pet pet;
+//    @OneToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "imageId", referencedColumnName = "Id")
+//    private Pet pet;
 }
