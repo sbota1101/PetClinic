@@ -7,9 +7,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class ContactUsController {
 
     @GetMapping("/contactus")
-    public String loginPage(){
+    public String contactusPage(){
 
-        return "security/contactus";
+        return "redirect:/home";
     }
+
 
 }
