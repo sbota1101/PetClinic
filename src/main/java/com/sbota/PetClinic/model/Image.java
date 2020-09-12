@@ -2,10 +2,7 @@ package com.sbota.PetClinic.model;
 
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Lob;
+import javax.persistence.*;
 
 @Entity
 
@@ -64,4 +61,7 @@ public class Image {
     public void setPic(byte[] pic){
         this.pic = pic;
     }
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "imageId", referencedColumnName = "Id")
+    private Pet pet;
 }
