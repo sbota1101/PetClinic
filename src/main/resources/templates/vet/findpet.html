@@ -1,10 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html"
+      xmlns:background-image="http://www.w3.org/1999/xhtml">
 <head>
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+
+    <script type="text/javascript"
+            src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
@@ -12,12 +17,26 @@
     <!--Let browser know website is optimized for mobile-->
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta charset="UTF-8">
-    <title>Pet view</title>
-    <nav th:insert="home.html::menu_nav"></nav>
+
+
+    <script>
+        $(document).ready(function() {
+            $('select').formSelect();
+        });
+
+    </script>
+
+    <nav th:insert="home.html::menu_nav">
+    </nav>
+    <style>
+    .input-filed,label{
+    color:black !important;
+    }
+</style>
 </head>
 <body>
 <div class="container">
-    <h1>Pet</h1>
+    <h1>Pets</h1>
     <a th:href="@{/addpet}">
         <i class="small material-icons">add</i>
     </a>
@@ -38,7 +57,7 @@
             <td th:text="${s.petName}"></td>
             <td th:text="${s.breed}"></td>
             <td th:text="${s.typeOfAnimal}"></td>
-            <td th:number="${s.age}"></td>
+            <td th:text="${s.age}"></td>
             <td>
                 <a th:href="@{/editpet/{id}(id = ${s.petId})}">
                     <i class="small material-icons">create</i>

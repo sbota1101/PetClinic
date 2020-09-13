@@ -73,12 +73,8 @@
                 </a>
                 <a th:href="@{/deletevet/{id}(id = ${s.vetId})}">
                     <i class="small material-icons"
-                       onclick="deleteAlert()">delete</i>
-                    <script>
-                        function deleteAlert() {
-                            confirm("You are sure you want to delete this vet from the list? ");
-                        }
-                    </script>
+                       onclick=" return confirm('You are sure you want to delete this vet from the list? ')">delete</i>
+
                 </a>
                 <a th:href="@{/vet/{id}/pets(id = ${s.vetId})}">
                     <i class="small material-icons">pets</i>
