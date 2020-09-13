@@ -14,26 +14,17 @@
     <meta charset="UTF-8">
     <title>Visit view</title>
     <nav th:insert="home.html::menu_nav"></nav>
-    <script>
-        function searchKeyUpVisitDate() {
-            // Declare variables
-            var input, filter, spans, i, txtValue, trs;
-            input = document.getElementById('searchVisitDate');
-            filter = input.value.toUpperCase();
-            spans = document.getElementsByClassName('visit_date');
-            trs = document.getElementsByClassName('visit');
-            // Loop through all list items, and hide those who don't match the search query
-            for (i = 0; i < spans.length; i++) {
-                txtValue = spans[i].innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    trs[i].style.display = "";
-                } else {
-                    trs[i].style.display = "none";
-                }
-            }
-        }
-    </script>
+    <link href="css/index.css" rel="stylesheet" type="text/css">
+    <style>
+    .input-filed,label{
+    color:black !important;
+    }
+        ::placeholder
+        {
+            color: black;}
+</style>
 </head>
+
 <body>
 <div class="container">
     <h1>Visits</h1>
@@ -43,10 +34,7 @@
         <thead>
         <tr>
             <td>Visit Id</td>
-            <td><input type="text" onkeyup="searchKeyUpVisitDate()"
-                       name="searchVisitDate" id="searchVisitDate"
-                       placeholder="Search visit date"/></td>
-
+            <td>Date</td>
             <td>Description</td>
 
         </tr>
