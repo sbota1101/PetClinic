@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
     <meta charset="UTF-8">
-
+    <link rel="stylesheet" href="icofont.css">
     <nav th:fragment="menu_nav" xmlns:th="http://www.thymeleaf.org">
         <div class="nav-wrapper #4dd0e1 cyan lighten-2">
 
@@ -24,7 +24,8 @@
                     class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="left hide-on-med-and-down #4dd0e1 cyan lighten-2">
                 <link th:href="@{/css/index.css}" rel="stylesheet" type="text/css">
-                <li><a th:href="@{/allvets} ">Vets<i class="icofont-doctor-alt"></i></a></li>
+
+                <li><a th:href="@{/allvets} ">Vets></a></li>
                 <li><a th:href="@{/allpets}">Pets<i class="icofont-cat-dog"></i></a></li>
                 <li><a th:href="@{/allowners}">Owners<i class="fa fa-user-o" aria-hidden="true"></i></a></li>
                 <li><a th:href="@{/allvisits}">Visits<i class="medium material-icons right">rate_reviews</i></a></li>
