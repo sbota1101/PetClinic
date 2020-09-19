@@ -27,8 +27,15 @@
                 <li><a th:href="@{/contactus}">Contact us<i class="medium material-icons right">contacts</i></a></li>
                 <li><a th:href="@{/logout}">Logout<i class="medium material-icons right">clear</i></a></li>
             </ul>
-            <img th:src="@{/images/pets.png}" class="brand-logo"  max-width="90" height="65"  margin-left=300px align="left">
-            <ul id="nav-wrappe" class="left #4dd0e1 cyan lighten-2 ">
+            <ul id="nav-wrapper" class="left #4dd0e1 cyan lighten-2 ">
+            <img th:src="@{/images/pets.png}" class="brand-logo"  max-width="90" height="65"  margin-left=300px align="left"
+            style="
+            .pets{
+	          position:fixed;
+	          top:25px;
+	           right:10px;
+}">
+
                 <li><a th:href="@{/register}">Register<i class="medium material-icons right">face</i></a></li>
                 <li><a th:href="@{/login}">Login<i class="medium material-icons right">face</i></a></li>
             </ul>
