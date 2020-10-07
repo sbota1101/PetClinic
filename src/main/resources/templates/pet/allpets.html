@@ -114,23 +114,7 @@
                 <input type="text" onkeyup="searchKeyUpPetName()"
                        name="searchPetName" id="searchPetName"
                        placeholder="Search pet name"/>
-
             </td>
-            <!--            <td>-->
-            <!--                <input type="text" onkeyup="searchKeyUpPetBreed()"-->
-            <!--                       name="searchPetBreed" id="searchPetBreed"-->
-            <!--                       placeholder="pet breed"/>-->
-            <!--            </td>-->
-            <!--            <td>-->
-            <!--                <input type="text" onkeyup="searchKeyUpPetType()"-->
-            <!--                       name="searchPetType" id="searchPetType"-->
-            <!--                       placeholder="pet type"/>-->
-            <!--            </td>-->
-            <!--            <td>-->
-            <!--                <input type="text" onkeyup="searchKeyUpPetAge()"-->
-            <!--                       name="searchPetAge" id="searchPetAge"-->
-            <!--                       placeholder="pet age"/>-->
-            <!--            </td>-->
         </tr>
         <tr>
             <td>Pet Id</td>
@@ -138,19 +122,17 @@
             <td>Breed</td>
             <td>Pet Type</td>
             <td>Pet Age</td>
-            <!--            <td>Pet Picture</td>-->
         </tr>
         </thead>
         <tbody>
 
-        <!--        <td><span class="first_name" th:text="${c.firstName}">Prenume </span></td>-->
         <tr th:each="s : ${pets}" class="pet">
             <td th:text="${s.petId}"></td>
             <td><span th:text="${s.petName}" class="pet_name "></span></td>
             <td><span th:text="${s.breed}" class="pet_breed"></span></td>
             <td><span th:text="${s.typeOfAnimal}" class="pet_type"></span></td>
             <td><span th:text="${s.age}" class="pet_age"></span></td>
-            <!--            <td><span th:text="${s.image}" class="pet_imagine"></span></td>-->
+
 
             <td>
                 <a th:href="@{/editpet/{id}(id = ${s.petId})}">
