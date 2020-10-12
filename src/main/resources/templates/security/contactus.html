@@ -1,84 +1,111 @@
-<!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
-<head>
-    <!--Import Google Icon Font-->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <!-- Compiled and minified CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<?php
 
-    <!-- Compiled and minified JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+$errors = [];
+$errorMessage = '';
 
-    <!--Let browser know website is optimized for mobile-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta charset="UTF-8">
-    <title>Contact Us</title>
+if (!empty($_POST)) {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+
+    if (empty($name)) {
+        $errors[] = 'Name is empty';
+    }
+
+    if (empty($email)) {
+        $errors[] = 'Email is empty';
+    } else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $errors[] = 'Email is invalid';
+    }
+if (empty($message)) {
+        $errors[] = 'Message is empty';
+    }
 
 
+    if (empty($errors)) {
+        $toEmail = 'crisansorinageorgiana@yahoo.com';
+        $emailSubject = 'New email from your contant form';
+        $headers = ['From' => $email, 'Reply-To' => $email, 'Content-type' => 'text/html; charset=iso-8859-1'];
 
-    <style>
+        $bodyParagraphs = ["Name: {$name}", "Email: {$email}", "Message:", $message];
+        $body = join(PHP_EOL, $bodyParagraphs);
 
- label {
-color: black;
-font-weight: bold;
-display: block;
-width: 300px;
-}
-
-button{
-  font-family: arial;
-  color: black !important;
-  font-size: 14px;
-  text-shadow: 1px 1px 0px black;
-  box-shadow: 1px 1px 1px black;
-  padding: 10px 25px;
-  border-radius: 10px;
-  border: 2px solid black;
-
-}
-
-body{
-            background-image:url("https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=282&q=80");
-            background-attachment: fixed;
-            background-size: cover;
+        if (mail($toEmail, $emailSubject, $body, $headers)) {
+            header('Location: thank-you.html');
+        } else {
+            $errorMessage = 'Oops, something went wrong. Please try again later';
         }
-             ::placeholder
-        {
-            color: black;}
-
-
-</style>
-
-
-</head>
-<script>
-   function foo() {
-   alert("Submit button clicked!");
-   return true;
+    } else {
+        $allErrors = join('<br/>', $errors);
+        $errorMessage = "<p style='color: red;'>{$allErrors}</p>";
+    }
 }
-</script>
+
+?>
+
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
 <body>
+   <form th:action="@{/contactus}" method="post" id="contact-form">
 
-<div class="container">
-    <h1>Contact us</h1>
-    <div class="form">
-        <form th:action="@{/contactus}" method="post">
+    <h2>Contact us</h2>
 
-            <label for="fname"><b>First Name</b></label>
-                    <input type="text" id="fname" name="firstname" placeholder="Your name..">
+    <?php echo((!empty($errorMessage)) ? $errorMessage : '') ?>
+    <p>
+      <label>First Name:</label>
+      <input name="name" type="text" value="dima"/>
+    </p>
+    <p>
+      <label>Email Address:</label>
+      <input style="cursor: pointer;" name="email" value="dima@dima.com" type="text"/>
+    </p>
+    <p>
+      <label>Message:</label>
+      <textarea name="message">dima</textarea>
+    </p>
 
-            <label for="lname"><b>Last Name</b></label>
-                    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
-            <label for="lmail"><b>Email</b></label>
-            <input type="email" id="lmail" name="email" placeholder="Your address email..">
+    <p>
+      <input type="submit" value="Send"/>
+    </p>
+  </form>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/validate.js/0.13.1/validate.min.js"></script>
+  <script>
+      const constraints = {
+          name: {
+              presence: { allowEmpty: false }
+          },
+          email: {
+              presence: { allowEmpty: false },
+              email: true
+          },
+          message: {
+              presence: { allowEmpty: false }
+          }
+      };
 
-            <label for="subject"><b>Subject</b></label>
-            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+      const form = document.getElementById('contact-form');
 
+      form.addEventListener('submit', function (event) {
+          const formValues = {
+              name: form.elements.name.value,
+              email: form.elements.email.value,
+              message: form.elements.message.value
+          };
 
-            <button type="submit" value="submit" onclick="return foo();" >Submit</button>
-        </form>
-    </div>
-</div>
+          const errors = validate(formValues, constraints);
+
+          if (errors) {
+              event.preventDefault();
+              const errorMessage = Object
+                  .values(errors)
+                  .map(function (fieldValues) {
+                      return fieldValues.join(', ')
+                  })
+                  .join("\n");
+
+              alert(errorMessage);
+          }
+      }, false);
+  </script>
 </body>
 </html>
