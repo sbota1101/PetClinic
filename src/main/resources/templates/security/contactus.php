@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+
+
+<?php
+
+if($_POST["message"]) {
+
+mail("crisansorinageorgiana@yahoo.com", "Here is the subject line",
+
+$_POST["insert your message here"]. "From: an@email.address");
+
+}
+
+?>
+
+    <style>
+
+ label {
+color: black;
+font-weight: bold;
+display: block;
+width: 300px;
+}
+
+button{
+  font-family: arial;
+  color: black !important;
+  font-size: 14px;
+  text-shadow: 1px 1px 0px black;
+  box-shadow: 1px 1px 1px black;
+  padding: 10px 25px;
+  border-radius: 10px;
+  border: 2px solid black;
+
+}
+
+body{
+            background-image:url("https://images.unsplash.com/photo-1522441815192-d9f04eb0615c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=282&q=80");
+            background-attachment: fixed;
+            background-size: cover;
+        }
+             ::placeholder
+        {
+            color: black;}
+
+
+</style>
+
+
+</head>
+<script>
+   function foo() {
+   alert("Submit button clicked!");
+   return true;
+}
+</script>
+<body>
+
+<div class="container">
+    <h1>Contact us</h1>
+    <div class="form">
+        <form th:action="@{/contactus}" method="post">
+
+            <label for="fname"><b>First Name</b></label>
+            <input type="text" id="fname" name="firstname" placeholder="Your name..">
+
+            <label for="lname"><b>Last Name</b></label>
+            <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+            <label for="lmail"><b>Email</b></label>
+            <input type="email" id="lmail" name="email" placeholder="Your address email..">
+
+            <label for="subject"><b>Subject</b></label>
+            <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+
+            <button type="submit" value="submit" onclick="return foo();" >Submit</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+
+
