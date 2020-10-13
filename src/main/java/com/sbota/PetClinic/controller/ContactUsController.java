@@ -3,6 +3,7 @@ package com.sbota.PetClinic.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class ContactUsController {
@@ -13,10 +14,13 @@ public class ContactUsController {
         return "security/contactus";
     }
 
-    @PostMapping("/contactus")
-    public String contactusPage1(){
-
+//    @PostMapping("/contactus")
+//    public String contactusPage1(){
+//
+//        return "redirect:/";
+//    }
+    @RequestMapping("/handler")
+    public String home() {
         return "redirect:/";
     }
-
 }

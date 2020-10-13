@@ -1,6 +1,9 @@
-<?php $name = $_POST['name'];
+<?php
+if($_SERVER["REQUEST_METHOD"]=="POST"){
+}$name = $_POST['name'];
 $email = $_POST['email'];
 $message = $_POST['message'];
+}
 $formcontent="From: $name \n Message: $message";
 $recipient = "crisansorinageorgiana@yahoo.com";
 $subject = "Contact Form";

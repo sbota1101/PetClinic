@@ -1,5 +1,5 @@
 <?php include('handler.php');?>
-<form action="handler.php" method="POST">
+<form action="<?=$_SERVER[PHP_SELF'];?>" method="POST">
     <p>Name</p> <input type="text" name="name">
     <p>Email</p> <input type="text" name="email">
     <p>Message</p><textarea name="message" rows="6" cols="25"></textarea><br />
