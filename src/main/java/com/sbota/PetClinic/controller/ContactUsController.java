@@ -11,7 +11,7 @@ public class ContactUsController {
     @GetMapping("/contactus")
     public String contactusPage(){
 
-        return "security/contactus";
+        return "security/handler";
     }
 
 //    @PostMapping("/contactus")
@@ -19,7 +19,7 @@ public class ContactUsController {
 //
 //        return "redirect:/";
 //    }
-    @RequestMapping("/handler")
+    @PostMapping("/handler")
     public String home() {
         return "redirect:/";
     }
