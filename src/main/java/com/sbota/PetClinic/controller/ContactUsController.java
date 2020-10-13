@@ -13,7 +13,7 @@ public class ContactUsController {
         return "security/contactus";
     }
 
-    @PostMapping("/handler")
+    @PostMapping("/contactus")
     public String contactusPage1(){
 
         return "redirect:/";
