@@ -11,16 +11,13 @@ public class ContactUsController {
     @GetMapping("/contactus")
     public String contactusPage(){
 
-        return "security/handler";
+        return "security/contactus";
     }
 
-//    @PostMapping("/contactus")
-//    public String contactusPage1(){
-//
-//        return "redirect:/";
-//    }
-    @PostMapping("/handler")
-    public String home() {
+    @PostMapping("/contactus")
+    public String contactusPage1(){
+
         return "redirect:/";
     }
+
 }
